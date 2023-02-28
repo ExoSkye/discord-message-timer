@@ -18,5 +18,7 @@ async def purge():
         if message.created_at < datetime.datetime.now() - datetime.timedelta(minutes=MINUTES):
             await message.delete()
 
+purge.start()
+
 with open(".token") as f:
     client.run(f.read().strip())
